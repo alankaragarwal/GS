@@ -1,0 +1,797 @@
+basePath: /GSOService
+paths:
+  /gso/transformation:
+    get:
+      summary: Transform using MDX and Input File
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: performTranslationUsingGET
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: mdxPath
+          description: Absolute path of the MDX
+          type: string
+          required: true
+        - in: query
+          name: inputPath
+          description: Absolute path of the input file
+          type: string
+          required: true
+      tags:
+        - Publishing
+  /gso/transformInputMessage:
+    post:
+      summary: Transform input message using MDX
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: translateInputMessageUsingPOST
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: mdxPath
+          description: Absolute path of the MDX
+          type: string
+          required: true
+        - in: body
+          name: inputMessage
+          description: Input Message Text to be transformed
+          schema:
+            type: string
+          required: true
+      tags:
+        - Publishing
+  /metadata:
+    get:
+      summary: Get List of GSOs
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getListofGSOsUsingGET
+      responses:
+        '200':
+          description: OK
+      tags:
+        - GSOMetaData
+  /metadata/gso/{gso}:
+    get:
+      summary: Get Schema definition for GSO
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getSchemaForGSOGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: gso
+          description: GSO Name
+          type: string
+          required: true
+        - default: SWAGGER
+          in: query
+          name: schemaType
+          description: Schema Type
+          type: string
+          enum:
+            - SWAGGER
+            - JSON
+            - XML
+          required: true
+      tags:
+        - GSOMetaData
+  /metadata/gso/{gso}/rules:
+    get:
+      summary: Get List of Rules
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getListOfRulesUsingGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: gso
+          description: GSO Name
+          type: string
+          required: true
+      tags:
+        - GSOMetaData
+  /metadata/gso/{gso}/fields:
+    get:
+      summary: Get List of Fields for GSO
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getListofFieldsUsingGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: gso
+          description: GSO Name
+          type: string
+          required: true
+      tags:
+        - GSOMetaData
+  /metadata/gso/{gso}/field/{field}/type:
+    get:
+      summary: Get type of field
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getFieldTypeUsingGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: gso
+          description: GSO Name
+          type: string
+          required: true
+        - in: path
+          name: field
+          description: Full Qualified Path
+          type: string
+          required: true
+      tags:
+        - GSOMetaData
+  /metadata/gso/{gso}/field/{field}/default:
+    get:
+      summary: Get default value
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getDefaultValueUsingGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: gso
+          description: GSO Name
+          type: string
+          required: true
+        - in: path
+          name: field
+          description: Full Qualified Path
+          type: string
+          required: true
+      tags:
+        - GSOMetaData
+  /metadata/gso/{gso}/field/{field}/validValues:
+    get:
+      summary: Get valid values
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getValidValuesUsingGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: gso
+          description: GSO Name
+          type: string
+          required: true
+        - in: path
+          name: field
+          description: Full Qualified Path
+          type: string
+          required: true
+      tags:
+        - GSOMetaData
+  /gso/audit:
+    get:
+      summary: Get Audit information for requested field
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getEntitiesGetUsingGET
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Entity Not Found
+        '404':
+          description: Given value not found
+      parameters:
+        - in: query
+          name: eql
+          description: Filter condition using Entity Query Language
+          type: string
+          required: true
+        - in: query
+          name: field
+          description: Fully Qualified GSO field name, eg Equity.Identifiers.InstrumentLevelIdentifiers.ISIN
+          type: string
+          required: true
+        - default: json
+          in: query
+          name: format
+          description: Output format - XML/JSON
+          type: string
+          required: false
+        - in: query
+          name: gsoName
+          description: GSO Name
+          type: string
+          required: true
+      tags:
+        - Audit
+  /gso/audit/asof:
+    get:
+      summary: Get Audit information for as of Date
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getAsOfEntityUsingGET
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Entity Not Found
+        '404':
+          description: Given value not found
+      parameters:
+        - in: query
+          name: eql
+          description: Filter condition using Entity Query Language
+          type: string
+          required: true
+        - in: query
+          name: templateName
+          description: Template Name
+          type: string
+          required: true
+        - default: json
+          in: query
+          name: format
+          description: Output format - XML/JSON
+          type: string
+          required: false
+        - in: query
+          name: asOfDate
+          description: 'As Of Date in yyyy-MM-dd HH:mm:ss format '
+          type: string
+          required: true
+        - in: query
+          name: gsoName
+          description: GSO Name
+          type: string
+          required: true
+        - in: query
+          name: skipNullFields
+          description: Skip Null Fields
+          type: boolean
+          required: false
+          default: true
+      tags:
+        - Audit
+  /gso:
+    get:
+      summary: Fetch Entities (paginated)
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getPaginatedEntitiesUsingGET
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Entity Not Found
+        '206':
+          description: More data exists
+        '304':
+          description: No modification found
+      parameters:
+        - in: query
+          name: TemplateName
+          description: Template Name to control fields in output
+          type: string
+          required: false
+        - in: query
+          name: compression
+          description: Enable output compression, currently gzip compression is supported
+          type: string
+          required: false
+        - in: query
+          name: enableRelatedFieldTag
+          description: Enable Related field flag is used generated o/p similar to UI or Publishing
+          type: string
+          required: false
+          default: true
+        - in: query
+          name: enableValue
+          description: Enable Value flag is used to provide value directly for a field, default behaviour provides value as nested datapoint under the field
+          type: string
+          required: false
+          default: true
+        - in: query
+          name: eql
+          description: 'Entity Query Language can be compared with a SQL Where clause.  <br/><br/>A field condition compares one entity field with another entity field or with a constant value. for example, <br/><br/>Equity.BaseIssuInformation.InstrumentType = ‘EQUITY’ <br/><br/>This query will return all instruments where the InstrumentType is EQUITY. <br/><br/>In general the syntax is ‘EntityFieldExpression Operator ConstantExpression.’ Following are details for three parts of a field condition. <br/><br/><b>Entity Field Expression</b> <br/><br/>An entity field expression starts with the name of the root tag or with a root tag child and then navigates to a field. So Equity.BaseIssuInformation.InstrumentType and BaseIssuInformation.InstrumentType are both valid expressions and point to the InstrumentType field. <br/><br/>Example <br/><br/>Equity.BaseIssuInformation.InstrumentType <ul><li>Equity is the root tag name of the Business Entity (can be omitted).</li> <li>BaseIssuInformation is an intermediate tag name.</li> <li>InstrumentType is the tag name that is actually referred to.</li></ul> <br/><br/>Every field expression in the query must be fully qualified. <br/><br/><b>Operator</b> <br/><br/>The list of operators that are supported in query: =, <>, >, <, =>, =<, like, between, is null, is not null and in. <br/><br/><b>Constant Expression</b> <br/><br/>Constant expressions are either string numbers or date expressions. <br/><br/>Examples <ul><li>Number Expression: 1123</li> <li>String Expression: ‘aStringConstant’</li> <li>Date: ‘2007-08-31’ or ‘2007-08-31T14:30:30’</li></ul> '
+          type: string
+          required: false
+        - in: query
+          name: gsoName
+          description: GSO Name
+          type: string
+          required: true
+        - default: '100'
+          in: query
+          name: limit
+          description: Request bulk size
+          type: string
+          required: false
+          pattern: ^[1-9]+[0-9]*$
+        - in: query
+          name: logId
+          description: logId of previous request - this should be used for pagination.  <br/>This will make subsequent requests more performant as it will utilize filtered result set of previous request.  <br/><br/>logId can be located under link tag of previous request.
+          type: string
+          required: false
+        - default: '1'
+          in: query
+          name: marker
+          description: Start Index of the respone - this should be used for pagination
+          type: string
+          required: false
+        - in: query
+          name: multiPartFilter
+          description: Condition to Filter multi occurring data set as part of response
+          type: string
+          required: false
+        - in: query
+          name: skipNullFields
+          description: If this parameter is set to true, the empty fields will not be part of response. If set to false, response will include such empty fields/data-groups as empty tag.
+          type: boolean
+          required: false
+          default: true
+        - in: query
+          name: replaceDomainValue
+          description: This flag can replace value with display value (for domain enabled fields only) to make it consistent with User Interface
+          type: boolean
+          required: false
+          default: false
+        - in: query
+          name: mdxPath
+          description: Absolute path of the MDX to be used for output transformation
+          type: string
+          required: false
+        - in: query
+          name: ifModifiedSince
+          description: 'Timestamp of the last response - format: YYYY-MM-DD HH24:MI:SS <br/><br/> the server sends back the requested resource, with a 200 status, only if it has been last modified after the given date. If the resource has not been modified since, the response is a 304 without any body'
+          type: string
+          required: false
+      tags:
+        - Publishing
+  /gso/create:
+    post:
+      summary: Get Entities
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getEntitiesUsingPOST
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: body
+          name: entityRequest
+          description: entityRequest
+          required: true
+        - in: query
+          name: vendor
+          description: Vendor name
+          type: string
+          default: GS
+          required: false
+      tags:
+        - Inbound
+      consumes:
+        - application/json
+  /productcode/multi:
+    post:
+      summary: Resolve product code for Multi
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: resolveProductCodeMultiUsingPOST
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Product Code not found of any request
+      parameters:
+        - schema:
+            type: string
+          in: body
+          name: requestArray
+          description: Array of ProductCode lookup requests
+          required: true
+      tags:
+        - ProductTaxonomy
+      consumes:
+        - application/json
+  /productcode:
+    post:
+      summary: Resolve product code
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: resolveProductCodeUsingPOST
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Product Code not found
+        '500':
+          description: Multiple Product code found
+      parameters:
+        - schema:
+            type: string
+          in: body
+          name: request
+          description: ProductCode lookup request
+          required: true
+      tags:
+        - ProductTaxonomy
+      consumes:
+        - application/json
+    get:
+      summary: Fetch resolved product code
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: resolveProductCodeGetUsingGET
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Product Code not found
+        '500':
+          description: Multiple Product codes found
+      parameters:
+        - in: query
+          default: 'false'
+          name: includeReqParam
+          description: Include request parameters in response
+          type: string
+          enum:
+            - 'true'
+            - 'false'
+          required: false
+        - in: query
+          name: consumer
+          description: Consumer Code
+          type: string
+          required: true
+        - in: query
+          name: callingSystemName
+          description: Application Name invoking API
+          type: string
+          required: false
+        - in: query
+          default: 'true'
+          name: deepLookup
+          description: 'Resolve all product codes for requested attribute, false - returns the first resolved product code '
+          type: string
+          enum:
+            - 'true'
+            - 'false'
+          required: false
+      tags:
+        - ProductTaxonomy
+  /gso/gsoName/{gsoName}/fullQualifiedField/{fullQualifiedField}/fieldValue/{fieldValue}:
+    get:
+      summary: Fetch entity by Id
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getEntityByIdUsingGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: fieldValue
+          description: Field value for filtering, eg ISIN value if fullQualifiedField is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN
+          type: string
+          required: true
+        - in: path
+          name: fullQualifiedField
+          description: Fully Qualified GSO field name, eg Equity.Identifiers.InstrumentLevelIdentifiers.ISIN
+          type: string
+          required: true
+        - in: path
+          name: gsoName
+          description: GSO Name
+          type: string
+          required: true
+      tags:
+        - Publishing
+  /gso/gsoName/{gsoName}/fullQualifiedField/{fullQualifiedField}/fieldValue/{fieldValue}/format/{format}:
+    get:
+      summary: Fetch entity by Format
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getEntityByIdFormatUsingGET
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Given value not found
+      parameters:
+        - in: path
+          name: fieldValue
+          description: Field value for filtering, eg ISIN value if fullQualifiedField is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN
+          type: string
+          required: true
+        - in: path
+          name: format
+          description: Output format - XML/JSON
+          type: string
+          required: true
+        - in: path
+          name: fullQualifiedField
+          description: Fully Qualified GSO field name, eg Equity.Identifiers.InstrumentLevelIdentifiers.ISIN
+          type: string
+          required: true
+        - in: path
+          name: gsoName
+          description: GSO Name
+          type: string
+          required: true
+      tags:
+        - Publishing
+  /gso/profileName/{profileName}:
+    get:
+      summary: Publish by Profile
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: getReportGET
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          name: profileName
+          description: Publishing Subscription Profile name.
+          type: string
+          required: true
+      tags:
+        - Publishing
+  /productcode/reset/{reset}:
+    get:
+      summary: Reset cache
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: resetCacheUsingGET
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: path
+          default: 'true'
+          name: reset
+          description: reset
+          type: string
+          enum:
+            - 'true'
+            - 'false'
+          required: true
+      tags:
+        - ProductTaxonomy
+  /datastaging/normalised:
+    get:
+      summary: Fetch normalised entities
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: fetchNormalisedEntitiesUsingGET
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: templateName
+          description: Template Name
+          type: string
+          required: true
+        - in: query
+          name: eql
+          description: Filter condition using Entity Query Language
+          type: string
+          required: false
+        - in: query
+          name: compression
+          description: Enable output compression, currently gzip compression is supported
+          type: string
+          required: false
+        - default: '1'
+          in: query
+          name: marker
+          description: Start Index
+          type: string
+          required: false
+        - default: '100'
+          in: query
+          name: limit
+          description: Request bulk size
+          type: string
+          required: false
+          pattern: ^[1-9]+[0-9]*$
+      tags:
+        - Staging
+  /datastaging/concrete:
+    get:
+      summary: Fetch concrete entities
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: fetchConcreteEntitiesUsingGET
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: eql
+          description: Filter condition using Entity Query Language
+          type: string
+          required: false
+        - in: query
+          name: transform
+          description: Transform Entities
+          type: boolean
+          required: false
+          default: true
+        - in: query
+          name: compression
+          description: Enable output compression, currently gzip compression is supported
+          type: string
+          required: false
+        - default: '1'
+          in: query
+          name: marker
+          description: Start Index
+          type: string
+          required: false
+        - default: '100'
+          in: query
+          name: limit
+          description: Request bulk size
+          type: string
+          required: false
+          pattern: ^[1-9]+[0-9]*$
+      tags:
+        - Staging
+  /datastaging/raw:
+    get:
+      summary: Fetch raw entities
+      deprecated: false
+      produces:
+        - '*/*'
+      operationId: fetchRawEntitiesUsingGET
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: query
+          name: eql
+          description: Filter condition using Entity Query Language
+          type: string
+          required: false
+        - in: query
+          name: compression
+          description: Enable output compression, currently gzip compression is supported
+          type: string
+          required: false
+        - default: '1'
+          in: query
+          name: marker
+          description: Start Index
+          type: string
+          required: false
+        - default: '100'
+          in: query
+          name: limit
+          description: Request bulk size
+          type: string
+          required: false
+          pattern: ^[1-9]+[0-9]*$
+      tags:
+        - Staging
+definitions:
+  EntityRequest:
+    type: object
+    title: EntityRequest
+    properties:
+      eql:
+        type: string
+      templateName:
+        type: string
+      prop:
+        additionalProperties:
+          type: string
+        type: object
+      format:
+        type: string
+      fullResponse:
+        type: boolean
+      gsoName:
+        type: string
+      multiPartFilter:
+        type: string
+  EntityVersionRequest:
+    type: object
+    title: EntityVersionRequest
+    properties:
+      eql:
+        type: string
+      templateName:
+        type: string
+      versionNum:
+        type: string
+      prop:
+        additionalProperties:
+          type: string
+        type: object
+      format:
+        type: string
+      versionDate:
+        type: string
+      gsoName:
+        type: string
+swagger: '2.0'
+info:
+  license:
+    name: License of API
+    url: http://www.thegoldensource.com
+  contact:
+    name: GoldenSource
+    url: http://www.thegoldensource.com
+    email: support@thegoldensource.com
+  title: GoldenSource REST API
+  version: 8.8.1.09
+tags:
+  - name: Audit
+    description: REST API for Auditing
+  - name: Inbound
+    description: Inbound API's
+  - name: ProductTaxonomy
+    description: Product Taxonomy API's
+  - name: Publishing
+    description: GSO Publishing API's
+  - name: GSOMetaData
+    description: GSO Meta Data API's
+  - name: Staging
+    description: Data Staging
