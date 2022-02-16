@@ -785,7 +785,7 @@ info:
 tags:
   - name: A for Audit
     description: REST API for Auditing
-  - name: Inbound
+  - name: I for Inbound
     description: Inbound API's
   - name: ProductTaxonomy
     description: Product Taxonomy API's
