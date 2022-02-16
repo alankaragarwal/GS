@@ -783,7 +783,7 @@ info:
   title: GoldenSource REST API
   version: 8.8.1.09
 tags:
-  - name: Audit
+  - name: A for Audit
     description: REST API for Auditing
   - name: Inbound
     description: Inbound API's
