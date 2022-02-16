@@ -411,7 +411,7 @@ paths:
           default: GS
           required: false
       tags:
-        - Inbound
+        - I for Inbound
       consumes:
         - application/json
   /productcode/multi:
