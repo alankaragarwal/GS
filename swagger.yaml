@@ -787,17 +787,17 @@ tags:
     description: REST API for Auditing
   - name: I for Inbound
     description: Inbound API's
-  - name: ProductTaxonomy
+  - name: Product Taxonomy
     description: Product Taxonomy API's
   - name: Publishing
     description: GSO Publishing API's
   - name: GSOMetaData
     description: GSO Meta Data API's
   - name: Staging
-    description: Data Staging\
+    description: Data Staging APIs\
 schemes:
   - https
-host: indev74.thegoldensource.com:8563
+host: "indev74.thegoldensource.com:8563"
 authorization: Basic dXNlcjE6dXNlcjFAMTIz
 securitySchemes:
     basicAuth:
