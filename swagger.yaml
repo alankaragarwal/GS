@@ -794,4 +794,14 @@ tags:
   - name: GSOMetaData
     description: GSO Meta Data API's
   - name: Staging
-    description: Data Staging
+    description: Data Staging\
+schemes:
+  - https
+Host: indev74.thegoldensource.com:8563
+Authorization: Basic dXNlcjE6dXNlcjFAMTIz
+securitySchemes:
+    basicAuth:
+      description: 'Basic HTTP authentication. Allowed headers-- Authorization: Basic
+        <api_key> | Authorization: Basic <base64 hash of `api_key:`>'
+      scheme: basic
+      type: https
