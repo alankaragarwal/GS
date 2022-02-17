@@ -798,11 +798,6 @@ tags:
 schemes:
   - https
 host: 'indev74.thegoldensource.com:8563'
-url: 'indev74.thegoldensource.com:8563'
-authorization: Basic dXNlcjE6dXNlcjFAMTIz
-securitySchemes:
-    basicAuth:
-      description: 'Basic HTTP authentication. Allowed headers-- Authorization: Basic
-        <api_key> | Authorization: Basic <base64 hash of `api_key:`>'
-      scheme: basic
-      type: https
+securityDefinitions:
+  dXNlcjE6dXNlcjFAMTIz:
+    type: basichost: 'indev74.thegoldensource.com:8563'
