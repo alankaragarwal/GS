@@ -797,8 +797,6 @@ tags:
     description: Data Staging APIs\
 schemes:
   - https
-host: "indev74.thegoldensource.com:8563"
-authorization: Basic dXNlcjE6dXNlcjFAMTIz
 securitySchemes:
     basicAuth:
       description: 'Basic HTTP authentication. Allowed headers-- Authorization: Basic
