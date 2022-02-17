@@ -797,8 +797,8 @@ tags:
     description: Data Staging\
 schemes:
   - https
-Host: indev74.thegoldensource.com:8563
-Authorization: Basic dXNlcjE6dXNlcjFAMTIz
+host: indev74.thegoldensource.com:8563
+authorization: Basic dXNlcjE6dXNlcjFAMTIz
 securitySchemes:
     basicAuth:
       description: 'Basic HTTP authentication. Allowed headers-- Authorization: Basic
