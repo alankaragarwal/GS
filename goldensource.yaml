@@ -1,0 +1,2525 @@
+---
+security:
+- global: []
+components:
+  schemas:
+    request:
+      GatherStatistics:
+        properties:
+          ActionType:
+            default: "EXPORT_AND_RESET"
+            description: "Specify the Action thats needs to be taken on the Workflow\
+              \ statistics. Supported Actions are \"RESET\", \"EXPORT\", \"EXPORT_AND_RESET\""
+            type: "string"
+            items:
+              type: "string"
+          WorkflowName:
+            default: null
+            nullable: true
+            description: "Name of the Workflow for which the statistics re to be collected."
+            type: "string"
+            items:
+              type: "string"
+          FileName:
+            default: null
+            nullable: true
+            description: "Name of the csv file in which the statistics will be captured.This\
+              \ Parameter is required for ActionType EXPORT and EXPORT_AND_RESET"
+            type: "string"
+            items:
+              type: "string"
+          Directory:
+            default: null
+            nullable: true
+            description: "Directory where the file is to be exported.This Parameter\
+              \ is required for ActionType EXPORT and EXPORT_AND_RESET"
+            type: "string"
+            items:
+              type: "string"
+      DateDifference:
+        properties:
+          Database:
+            default: null
+            nullable: true
+            description: "The Database reference whose Date time comparison is to\
+              \ be done with the Appserver"
+            type: "string"
+            items:
+              type: "string"
+      DBSelect:
+        properties:
+          DbSelectQuery:
+            default: null
+            description: "DbSelectQuery"
+            type: "string"
+            items:
+              type: "string"
+      PLP-1068-1:
+        properties:
+          Cleanup Date:
+            default: null
+            nullable: true
+            description: "All data from Elastic Search Staging Index will be cleaned\
+              \ whose PRESERVE_UNTIL is less than or equal to this date. This parameter\
+              \ is optional. Default is system date : type of this parameter is java.util.Date"
+            type: "string"
+            items:
+              type: "string"
+          Database:
+            default: null
+            nullable: true
+            description: "Database"
+            type: "string"
+            items:
+              type: "string"
+          BulkSize:
+            default: 500
+            description: "BulkSize"
+            type: "integer"
+          Message Type:
+            default: null
+            nullable: true
+            description: "Optional Parameter to specify a message type for which data\
+              \ from Elastic Search Staging Index needs to be cleaned"
+            type: "string"
+            items:
+              type: "string"
+      DeleteStagedVendorRecord:
+        properties:
+          User:
+            default: null
+            nullable: true
+            description: "User"
+            type: "string"
+            items:
+              type: "string"
+          Database:
+            default: null
+            nullable: true
+            description: "Database"
+            type: "string"
+            items:
+              type: "string"
+          Ids:
+            default: null
+            description: "Ids which need to be deactivated : type of this parameter\
+              \ is java.lang.Object"
+            type: "object"
+          Files:
+            default: null
+            description: "List of Map containing file information whose records need\
+              \ to be deactivated : type of this parameter is java.lang.Object"
+            type: "object"
+          BulkSize:
+            default: 200
+            description: "BulkSize"
+            type: "integer"
+      TestWorkflow:
+        properties:
+          eql:
+            default: null
+            nullable: true
+            description: "eql"
+            type: "string"
+            items:
+              type: "string"
+          actualCount:
+            default: null
+            nullable: true
+            description: "actualCount"
+            type: "string"
+            items:
+              type: "string"
+          apiRequestParameters:
+            default: null
+            description: "apiRequestParameters : type of this parameter is java.lang.Object"
+            type: "object"
+          expectedCount:
+            default: null
+            nullable: true
+            description: "expectedCount"
+            type: "string"
+            items:
+              type: "string"
+      LoadCalendarHolidayDetails:
+        properties:
+          SuccessAction:
+            default: null
+            nullable: true
+            description: "SuccessAction"
+            type: "string"
+            items:
+              type: "string"
+          NoOfThreads:
+            default: 5
+            description: "Define the number of parallel execution for the replacement\
+              \ activity to be run."
+            type: "integer"
+          OutputDirectory:
+            default: null
+            nullable: true
+            description: "OutputDirectory"
+            type: "string"
+            items:
+              type: "string"
+          BusinessFeed:
+            default: null
+            nullable: true
+            description: "BusinessFeed"
+            type: "string"
+            items:
+              type: "string"
+          MessageProcessingEvent:
+            default: null
+            nullable: true
+            description: "MessageProcessingEvent"
+            type: "string"
+            items:
+              type: "string"
+          ParallelBranches:
+            default: 2
+            description: "ParallelBranches"
+            type: "integer"
+          IsVDDBConfigured:
+            default: false
+            description: "If the replacement activity needs to be executed on VDDB\
+              \ database"
+            type: "boolean"
+          ParentJobId:
+            default: null
+            nullable: true
+            description: "ParentJobId"
+            type: "string"
+            items:
+              type: "string"
+          File:
+            default: null
+            description: "File : type of this parameter is java.net.URI"
+            type: "string"
+            items:
+              type: "string"
+          BulkSize:
+            default: 500
+            description: "BulkSize"
+            type: "integer"
+          MessageType:
+            default: null
+            nullable: true
+            description: "MessageType"
+            type: "string"
+            items:
+              type: "string"
+          OverridePriceSourceType:
+            default: null
+            nullable: true
+            description: "The Price Source Type will be overridden by the value provided\
+              \ in this parameter."
+            type: "string"
+            items:
+              type: "string"
+      EnableORDisableVDDBForwarding:
+        properties:
+          EnableVDDB:
+            default: true
+            description: "EnableVDDB"
+            type: "boolean"
+          MessageTypeName:
+            default: null
+            description: "MessageTypeName"
+            type: "string"
+            items:
+              type: "string"
+          EventName:
+            default: "ProcessFeedMessage"
+            description: "EventName"
+            type: "string"
+            items:
+              type: "string"
+          workflowNameOnProcessFeedMessageEvent:
+            default: null
+            description: "To Enable VDDB set the parameter to Basic VDDB Message Processing.\
+              \ To Disable VDDB set the parameter to  Basic Message Processing."
+            type: "string"
+            items:
+              type: "string"
+      EnginesRestart:
+        properties:
+          EngineName:
+            default: "engine/TPS-1"
+            description: "Name of the Engine which needs to be restarted."
+            type: "string"
+            items:
+              type: "string"
+      WorkflowActions:
+        properties:
+          Action:
+            default: null
+            description: "The action to be performed on the workflow. There are 3\
+              \ options to this:\\r\\n1. PAUSE 2. STOP 3. RESUME"
+            type: "string"
+            items:
+              type: "string"
+          WorkflowInstanceID:
+            default: null
+            description: "The workflow instance Id of the workflow on which the action\
+              \ needs to be taken."
+            type: "string"
+            items:
+              type: "string"
+    EntityVersionRequest:
+      title: "EntityVersionRequest"
+      type: "object"
+      properties:
+        eql:
+          type: "string"
+        templateName:
+          type: "string"
+        versionNum:
+          type: "string"
+        prop:
+          additionalProperties:
+            type: "string"
+          type: "object"
+        format:
+          type: "string"
+        versionDate:
+          type: "string"
+        gsoName:
+          type: "string"
+    response:
+      GatherStatistics:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      DateDifference:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      DBSelect:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      TranslatorRestart:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      PLP-1068-1:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      DeleteStagedVendorRecord:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      TestWorkflow:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      LoadCalendarHolidayDetails:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      EnableORDisableVDDBForwarding:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      EnginesRestart:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+      WorkflowActions:
+        properties:
+          identifier:
+            default: "string"
+            description: "identifier"
+            type: "string"
+          finished:
+            default: false
+            description: "finished"
+            type: "boolean"
+          failed:
+            default: false
+            description: "failed"
+            type: "boolean"
+          suspended:
+            default: false
+            description: "suspended"
+            type: "boolean"
+    TokenData:
+      type: "object"
+      properties:
+        password:
+          type: "string"
+          example: "user1@123"
+        grant_type:
+          type: "string"
+          example: "password"
+        scope:
+          type: "string"
+          example: "openid"
+        client_secret:
+          type: "string"
+          example: "8ff05a2b-bc7e-4e08-abb3-8e10666c2a3c"
+        client_id:
+          type: "string"
+          example: "GSOService"
+        username:
+          type: "string"
+          example: "user1"
+  securitySchemes:
+    global:
+      scheme: "basic"
+      type: "http"
+servers:
+- url: "https://indev62.thegoldensource.com:8543/GSOService/"
+openapi: "3.0.1"
+paths:
+  /gso/audit:
+    get:
+      summary: "Get Audit Information for a field"
+      deprecated: false
+      description: "This API provides audit information at the field level for a single\
+        \ entity that is resolved using EQL."
+      operationId: "getEntitiesGetUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+                example: "[ [ { \"timestamp\": \"Commit time Stamp\", \"asOfDate\"\
+                  : \"As of Date\", \"knowledgeDate\": \"Knowledge date / current\
+                  \ time\", \"value\": \"Value changed at the time of knowledge date\"\
+                  , \"userId\": \"Id of user who performed the change on field\",\
+                  \ \"oracleTransactionId\": \"326811672\", \"modificationComment\"\
+                  : \"Comment provided while changing the value\" } ] ]"
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        403:
+          description: "Forbidden from accessing a valid URL"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eql"
+        description: "<b>E</b>ntity <b>Q</b>uery <b>L</b>anguage condition can be\
+          \ compared with a SQL Where clause. <br>A field condition compares one entity\
+          \ field with another entity field or with a constant value. for example,\
+          \ <br>Equity.InstrumentDetails.PreferredIdentifierValue = 'AEA000101013'\
+          \ <br>The query should be based on identifier and is expected to resolve\
+          \ a single entity on which the auditing is to be fetched , In case multiple\
+          \ entities are resolved, audit data is return for first entity .<br>In general\
+          \ the syntax is 'EntityFieldExpression Operator ConstantExpression.' Following\
+          \ are details for three parts of a field condition. <br><br><ul><li><b>Entity\
+          \ Field Expression</b> <br>An entity field expression starts with the name\
+          \ of the root tag or with a root tag child and then navigates to a field.\
+          \ So Equity.InstrumentDetails.PreferredIdentifierValue and InstrumentDetails.PreferredIdentifierValue\
+          \ are both valid expressions and point to the PreferredIdentifierValue field.\
+          \ <br>Example <br>Equity.InstrumentDetails.PreferredIdentifierValue <ul><li>Equity\
+          \ is the root tag name of the Business Entity (can be omitted).</li> <li>InstrumentDetails\
+          \ is an intermediate tag name.</li> <li>PreferredIdentifierValue is the\
+          \ tag name that is actually referred to.</li></ul>Every field expression\
+          \ in the query must be fully qualified. </li><li><b>Operator</b> <br>The\
+          \ list of operators that are supported in query: =, <>, >, <, =>, =<, like,\
+          \ between, is null, is not null and in.</li> <li><b>Constant Expression</b>\
+          \ <br>Constant expressions are either string numbers or date expressions.\
+          \ <br>Examples <ul><li>Number Expression: 1123</li> <li>String Expression:\
+          \ 'aStringConstant'</li> <li>Date: '2007-08-31' or '2007-08-31T14:30:30'</li></ul>\
+          \ </li></ul>"
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "field"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      - schema:
+          default: "JSON"
+          type: "string"
+          enum:
+          - "XML"
+          - "JSON"
+        in: "query"
+        name: "format"
+        description: "Output format"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "gsoName"
+        description: "GSO Name"
+        required: true
+      tags:
+      - "Audit"
+  /orchestrator/getJSONSchema/{eventName}:
+    get:
+      summary: "Get JSON Schema for Event"
+      deprecated: false
+      description: "This API provides a JSON schema for orchestrator events by passing\
+        \ the event name."
+      operationId: "getJSONSchemaUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "eventName"
+        description: "Event Name"
+        required: true
+      tags:
+      - "Orchestrator"
+  /metadata/gso/{gso}/field/{field}/type:
+    get:
+      summary: "Get Type of Field"
+      deprecated: false
+      description: "This API provides details about the data type for a given field."
+      operationId: "getFieldTypeUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gso"
+        description: "GSO Name"
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "field"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      tags:
+      - "GSOMetaData"
+  /logger/{level}:
+    get:
+      summary: "Logger"
+      deprecated: false
+      description: "This API changes the log level for APIs."
+      operationId: "loggerGet"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+      parameters:
+      - schema:
+          default: "ERROR"
+          type: "string"
+          enum:
+          - "DEBUG"
+          - "ERROR"
+          - "WARN"
+          - "INFO"
+        in: "path"
+        name: "level"
+        required: true
+      tags:
+      - "Operations"
+  /WorkflowActions:
+    post:
+      summary: "WorkflowActions"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "WorkflowActions"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/WorkflowActions"
+        required: true
+      operationId: "WorkflowActionsUsingPOST"
+      description: "WorkflowActions"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/WorkflowActions"
+      tags:
+      - "Utility"
+  /gso/profileName/{profileName}:
+    get:
+      summary: "Publish by Profile"
+      deprecated: false
+      description: "This API encapsulates API parameters such as Publishing Profile.\
+        \ It enables users to retrieve Publishing Profiles response in a single API\
+        \ call."
+      operationId: "getReportGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "profileName"
+        description: "Publishing Subscription Profile name."
+        required: true
+      tags:
+      - "Publishing"
+  /TestWorkflow:
+    post:
+      summary: "TestWorkflow"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "TestWorkflow"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/TestWorkflow"
+        required: true
+      operationId: "TestWorkflowUsingPOST"
+      description: "TestWorkflow"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/TestWorkflow"
+      tags:
+      - "Inbound"
+  /GatherStatistics:
+    post:
+      summary: "GatherStatistics"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "GatherStatistics"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/GatherStatistics"
+        required: true
+      operationId: "GatherStatisticsUsingPOST"
+      description: "GatherStatistics"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/GatherStatistics"
+      tags:
+      - "Utility"
+  /EnginesRestart:
+    post:
+      summary: "EnginesRestart"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "EnginesRestart"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/EnginesRestart"
+        required: true
+      operationId: "EnginesRestartUsingPOST"
+      description: "EnginesRestart"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/EnginesRestart"
+      tags:
+      - "Utility"
+  /trace/fullQualifiedField/{fullQualifiedField}/:
+    get:
+      summary: "Trace a Field"
+      deprecated: false
+      description: "This API provides the trace details of a field in JSON format"
+      operationId: "getTraceForFieldGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "fullQualifiedField"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      tags:
+      - "Trace"
+  /DBSelect:
+    post:
+      summary: "DBSelect"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "This Event Triggers a Database Select Workflow and returns the\
+          \ result as list.\r\nThe parameter is Database select query."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/DBSelect"
+        required: true
+      operationId: "DBSelectUsingPOST"
+      description: "DBSelect"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/DBSelect"
+      tags:
+      - "Utility"
+  /orchestrator/getListOfEvents:
+    get:
+      summary: "Get List Of Events"
+      deprecated: false
+      description: "This API provides a list of orchestrator events."
+      operationId: "getListOfEventsUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      tags:
+      - "Orchestrator"
+  /gso/transformInputMessage:
+    post:
+      summary: "Transform Input Message using MDX"
+      x-codegen-request-body-name: "inputMessage"
+      requestBody:
+        description: "Input Message Text to be transformed"
+        content:
+          '*/*':
+            schema:
+              description: ""
+              type: "object"
+        required: true
+      deprecated: false
+      operationId: "translateInputMessageUsingPOST"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+        417:
+          description: "Expectation failed"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "mdxPath"
+        description: "Absolute path of the MDX<br>Example : /ext/app/jbossstandalone_dev/Transformation/JsonToJson.mdx"
+        required: true
+      tags:
+      - "Publishing"
+  /TranslatorRestart:
+    post:
+      summary: "TranslatorRestart"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "TranslatorRestart"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/TranslatorRestart"
+        required: true
+      operationId: "TranslatorRestartUsingPOST"
+      description: "TranslatorRestart"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/TranslatorRestart"
+      tags:
+      - "Utility"
+  /metadata/gso/{gso}/field/{field}/default:
+    get:
+      summary: "Get Default Value of field"
+      deprecated: false
+      description: "This API provides default values for given field."
+      operationId: "getDefaultValueUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gso"
+        description: "GSO Name"
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "field"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      tags:
+      - "GSOMetaData"
+  /gso/audit/asof:
+    get:
+      summary: "Get Audit information for As of Date"
+      deprecated: false
+      description: "This API provides a view of entity-level audit information for\
+        \ a single entity that is resolved using EQL (Entity Query Language). The\
+        \ entity view is built based on the given date from the audit data."
+      operationId: "getAsOfEntityUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eql"
+        description: "<b>E</b>ntity <b>Q</b>uery <b>L</b>anguage condition can be\
+          \ compared with a SQL Where clause. <br>A field condition compares one entity\
+          \ field with another entity field or with a constant value. for example,\
+          \ <br>Equity.InstrumentDetails.PreferredIdentifierValue = 'AEA000101013'\
+          \ <br>The query should be based on identifier and is expected to resolve\
+          \ a single entity on which the auditing is to be fetched , In case multiple\
+          \ entities are resolved, audit data is return for first entity .<br>In general\
+          \ the syntax is 'EntityFieldExpression Operator ConstantExpression.' Following\
+          \ are details for three parts of a field condition. <br><br><ul><li><b>Entity\
+          \ Field Expression</b> <br>An entity field expression starts with the name\
+          \ of the root tag or with a root tag child and then navigates to a field.\
+          \ So Equity.InstrumentDetails.PreferredIdentifierValue and InstrumentDetails.PreferredIdentifierValue\
+          \ are both valid expressions and point to the PreferredIdentifierValue field.\
+          \ <br>Example <br>Equity.InstrumentDetails.PreferredIdentifierValue <ul><li>Equity\
+          \ is the root tag name of the Business Entity (can be omitted).</li> <li>InstrumentDetails\
+          \ is an intermediate tag name.</li> <li>PreferredIdentifierValue is the\
+          \ tag name that is actually referred to.</li></ul>Every field expression\
+          \ in the query must be fully qualified. </li><li><b>Operator</b> <br>The\
+          \ list of operators that are supported in query: =, <>, >, <, =>, =<, like,\
+          \ between, is null, is not null and in.</li> <li><b>Constant Expression</b>\
+          \ <br>Constant expressions are either string numbers or date expressions.\
+          \ <br>Examples <ul><li>Number Expression: 1123</li> <li>String Expression:\
+          \ 'StringConstant'</li> <li>Date: '2007-08-31' or '2007-08-31T14:30:30'</li></ul>\
+          \ </li></ul>"
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "templateName"
+        description: "The template name is used to control the fields displayed in\
+          \ the output, but this functionality is only available for grid templates."
+        required: true
+      - schema:
+          default: "JSON"
+          type: "string"
+          enum:
+          - "XML"
+          - "JSON"
+        in: "query"
+        name: "format"
+        description: "Output format"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "asOfDate"
+        description: "As Of Date in yyyy-MM-dd HH:mm:ss format "
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "knowledgeDate"
+        description: "Knowledge date in yyyy-MM-dd HH:mm:ss format "
+        required: false
+      - schema:
+          default: "false"
+          type: "string"
+        in: "query"
+        name: "enableRelatedFieldTag"
+        description: "Enable Related field flag is used to generate o/p similar to\
+          \ UI or Publishing"
+        required: false
+      - schema:
+          default: "false"
+          type: "string"
+        in: "query"
+        name: "includeGSONameAsRelationName"
+        description: "When this flag is set to true, the generated schema will include\
+          \ the gso name of the relation.<br>When this flag is set to false,the generated\
+          \ schema will include relation name as displayed in GSODesigner .(This flag\
+          \ will take preceding to enableRelatedFieldTag in ''True'' case)"
+        required: false
+      - schema:
+          default: "false"
+          type: "string"
+        in: "query"
+        name: "enableValue"
+        description: "Enable Value flag is used to provide value directly for a field,\
+          \ default behaviour provides value as nested datapoint under the field"
+        required: false
+      - schema:
+          type: "string"
+        in: "query"
+        name: "gsoName"
+        description: "GSO Name"
+        required: true
+      - schema:
+          default: true
+          type: "boolean"
+        in: "query"
+        name: "skipNullFields"
+        description: "Skip Null Fields"
+      tags:
+      - "Audit"
+  /metadata/template/{template}/fields:
+    get:
+      summary: "Get List of Fields for Template"
+      deprecated: false
+      description: "This API provides a list of fully qualified paths for all fields\
+        \ in a given template. These paths can be used for other metadata APIs or\
+        \ to construct an EQL condition."
+      operationId: "getListofFieldsForTemplateUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "template"
+        description: "Template Name"
+        required: true
+      tags:
+      - "GSOMetaData"
+  /metadata/gsoName/{gsoName}/CDE:
+    get:
+      summary: "Get CDE Values"
+      deprecated: false
+      description: "This API provides a list of critical data elements (CDEs) for\
+        \ a given GSO in JSON format."
+      operationId: "getCDEValues"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gsoName"
+        description: "GSO name"
+        required: true
+      tags:
+      - "GSOMetaData"
+  /gso:
+    get:
+      summary: "Fetch Entities (paginated)"
+      deprecated: false
+      description: "This API allows you to distribute and publish content to various\
+        \ channels or platforms. It supports pagination for retrieving large datasets,\
+        \ allowing you to retrieve the data in smaller chunks. <br>When making a request,\
+        \ a status code of 206 indicates a partial content response, where only a\
+        \ portion of the resource is provided. To access the rest, make subsequent\
+        \ requests using pagination, often guided by a next link URL found either\
+        \ in the response header or under the Links tags in the payload."
+      operationId: "getPaginatedEntitiesUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        304:
+          description: "No modification found"
+          content: {}
+        403:
+          description: "Forbidden from accessing a valid URL"
+          content: {}
+        206:
+          description: "More data exists"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+        406:
+          description: "Not Acceptable"
+          content: {}
+        417:
+          description: "Expectation Failed"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "TemplateName"
+        description: "The template name is used to control the fields displayed in\
+          \ the output, but this functionality is only available for grid templates."
+      - schema:
+          type: "string"
+        in: "query"
+        name: "compression"
+        description: "This parameter is used to enable output compression. Currently,\
+          \ gzip compression is supported."
+      - schema:
+          default: "false"
+          type: "string"
+        in: "query"
+        name: "enableRelatedFieldTag"
+        description: "When this flag is set to true, related entity name will be displayed\
+          \ similar to Publishing or Payload used for UI processing. This flag maybe\
+          \ overridden using includeGSONameAsRelationName flag"
+      - schema:
+          default: false
+          type: "boolean"
+        in: "query"
+        name: "includeGSONameAsRelationName"
+        description: "When this flag is set to true, the generated schema will include\
+          \ the gso name of the relation.<br>When this flag is set to false,the generated\
+          \ schema will include relation name as displayed in GSODesigner .(This flag\
+          \ will take preceding to enableRelatedFieldTag in ''True'' case)"
+      - schema:
+          default: "false"
+          type: "string"
+        in: "query"
+        name: "enableValue"
+        description: "When this flag is set to true, data is directly provided for\
+          \ a field. The default behavior is to provide the value as a nested datapoint\
+          \ under the field. The field is modeled as a complex object and may have\
+          \ additional data points, such as vendor information in future."
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eql"
+        description: "<b>E</b>ntity <b>Q</b>uery <b>L</b>anguage condition can be\
+          \ compared with a SQL Where clause. <br>A field condition compares one entity\
+          \ field with another entity field or with a constant value. for example,\
+          \ <br>Equity.BaseIssuInformation.InstrumentType = 'EQUITY' <br>This query\
+          \ will return all instruments where the InstrumentType is EQUITY. <br>In\
+          \ general the syntax is 'EntityFieldExpression Operator ConstantExpression.'\
+          \ Following are details for three parts of a field condition. <br><br><ul><li><b>Entity\
+          \ Field Expression</b> <br>An entity field expression starts with the name\
+          \ of the root tag or with a root tag child and then navigates to a field.\
+          \ So Equity.BaseIssuInformation.InstrumentType and BaseIssuInformation.InstrumentType\
+          \ are both valid expressions and point to the InstrumentType field. <br>Example\
+          \ <br>Equity.BaseIssuInformation.InstrumentType <ul><li>Equity is the root\
+          \ tag name of the Business Entity (can be omitted).</li> <li>BaseIssuInformation\
+          \ is an intermediate tag name.</li> <li>InstrumentType is the tag name that\
+          \ is actually referred to.</li></ul>Every field expression in the query\
+          \ must be fully qualified. </li><li><b>Operator</b> <br>The list of operators\
+          \ that are supported in query: =, <>, >, <, =>, =<, like, between, is null,\
+          \ is not null and in.</li> <li><b>Constant Expression</b> <br>Constant expressions\
+          \ are either string numbers or date expressions. <br>Examples <ul><li>Number\
+          \ Expression: 1123</li> <li>String Expression: 'aStringConstant'</li> <li>Date:\
+          \ '2007-08-31' or '2007-08-31T14:30:30'</li></ul> </li></ul>"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "gsoName"
+        description: "GSO Name"
+        required: true
+      - schema:
+          default: "100"
+          pattern: "^[1-9]+[0-9]*$"
+          type: "string"
+        in: "query"
+        name: "limit"
+        description: "Request bulk size (Max is 20000)"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "logId"
+        description: "logId of previous request - this should be used for pagination.\
+          \  <br/>This will make subsequent requests more performant as it will utilize\
+          \ filtered result set of previous request.  <br/><br/>logId can be located\
+          \ under link tag of previous request."
+      - schema:
+          default: "1"
+          type: "string"
+        in: "query"
+        name: "marker"
+        description: "Start Index of the respone - this should be used for pagination"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "multiPartFilter"
+        description: "Condition to Filter multi occurring data set as part of response\
+          \ <br>Example :<br>InstrumentPriceAttributes.ISPAPricingHistory( ISPAISPHPriceDate\
+          \ between '2020-03-01' and '2020-03-28' )<br>where ISPAPricingHistory is\
+          \ the multi Occuring data group and ISPAISPHPriceDate is the filtering field"
+      - schema:
+          default: true
+          type: "boolean"
+        in: "query"
+        name: "skipNullFields"
+        description: "If this parameter is set to true, the empty fields will not\
+          \ be part of response. If set to false, response will include such empty\
+          \ fields/data-groups as empty tag."
+      - schema:
+          default: false
+          type: "boolean"
+        in: "query"
+        name: "replaceDomainValue"
+        description: "This flag can replace value with display value (for domain enabled\
+          \ fields only) to make it consistent with User Interface"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "mdxPath"
+        description: "Absolute path of the MDX to be used for output transformation<br>Example:\
+          \ /ext/app/jbossstandalone_dev/Transformation/JsonToJson.mdx<br>If provided\
+          \ the json output will be transformed using this mdx."
+      - schema:
+          type: "string"
+        in: "query"
+        name: "ifModifiedSince"
+        description: "Timestamp of the last response - format: YYYY-MM-DD HH24:MI:SS\
+          \ <br><br> the server sends back the requested resource, with a 200 status,\
+          \ only if it has been last modified after the given date. If the resource\
+          \ has not been modified since, the response is a 304 without any body"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "expectedCount"
+        description: "Excepted number of records to be specified with respect to limit\
+          \ specified."
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eventName"
+        description: "Event will be triggered if actual count is less than expected\
+          \ count"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "dataPath"
+        description: "Path of the node to be used for splitting published JSON. An\
+          \ example of dataPath is - FULLINSTRUMENT/FullInstrument/ListingDetails"
+      - schema:
+          default: false
+          type: "boolean"
+        in: "query"
+        name: "correlationheader"
+        description: "When the Correlation Header flag is set to true, the rrlgOid\
+          \ and apiId will be displayed in the response."
+      tags:
+      - "Publishing"
+  /orchestrator/status/{identifier}:
+    get:
+      summary: "Get Status Of Event"
+      operationId: "getStatus"
+      description: "This API provides the Status of event"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                properties:
+                  identifier:
+                    default: "string"
+                    description: "identifier"
+                    type: "string"
+                  finished:
+                    default: false
+                    description: "finished"
+                    type: "boolean"
+                  failed:
+                    default: false
+                    description: "failed"
+                    type: "boolean"
+                  suspended:
+                    default: false
+                    description: "suspended"
+                    type: "boolean"
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "identifier"
+        description: "Identifier"
+        required: true
+      tags:
+      - "Orchestrator"
+  /resetCache/{reset}:
+    get:
+      summary: "ResetCache"
+      deprecated: false
+      description: "This API provides a handle to the API cache and allows the application\
+        \ to reset the cache in order to fetch the latest version of metadata/configuration."
+      operationId: "resetCache"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+      parameters:
+      - schema:
+          default: "true"
+          type: "string"
+          enum:
+          - "true"
+          - "false"
+        in: "path"
+        name: "reset"
+        required: true
+      tags:
+      - "Operations"
+  /metadata:
+    get:
+      summary: "Get List of GSOs"
+      deprecated: false
+      description: "This API provides a complete list of GSO names."
+      operationId: "getListofGSOsUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+      tags:
+      - "GSOMetaData"
+  /gso/create:
+    post:
+      summary: "Create / Update Entity"
+      x-codegen-request-body-name: "entity"
+      requestBody:
+        description: "Entity structure"
+        content:
+          application/json:
+            schema:
+              type: "object"
+              example: "{ \"Issuer\": { \"IssuerInformation\": { \"IssuerName\": {\
+                \ \"value\": \"Nomura Holdings Inc\" }, \"IssuerType\": { \"value\"\
+                : \"CORP\" }, \"PreferredIssuerIdentifier\": { \"value\": \"114467\"\
+                \ }, \"PreferredIssuerIdentifierType\": { \"value\": \"BBCMPYID\"\
+                \ }, \"IssuerLegalName\": { \"value\": \"Sample rest\" } } } }"
+        required: true
+      deprecated: false
+      description: "This API supports the ingestion of a single entity into GoldenSource.\
+        \ The engine determines whether the message will update an existing entity\
+        \ or set up a new entity based on the identifier uniqueness configuration.\
+        \ The API expects the GSO message to be in JSON format."
+      operationId: "createEntitiesUsingPOST"
+      responses:
+        200:
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+                example: "{ \"transactionStatus\": { \"entityOID\": \"Id of the entity\
+                  \ created\", \"transactionId\": \"TRID ID for the transaction\"\
+                  \ } }"
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        403:
+          description: "Forbidden from accessing a valid URL"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "vendor"
+        description: "Vendor name"
+      - schema:
+          default: "SD"
+          type: "string"
+        in: "query"
+        name: "event"
+        description: "Event name"
+      tags:
+      - "Inbound"
+  /gso/audit/auditTimeline:
+    get:
+      summary: "Get Audit Timeline"
+      deprecated: false
+      description: "This API provides a timeline of audit events at the entity level."
+      operationId: "getAuditTimeline"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "gsoName"
+        description: "GSO Name"
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eql"
+        description: "<b>E</b>ntity <b>Q</b>uery <b>L</b>anguage condition can be\
+          \ compared with a SQL Where clause. <br>A field condition compares one entity\
+          \ field with another entity field or with a constant value. for example,\
+          \ <br>Equity.InstrumentDetails.PreferredIdentifierValue = 'AEA000101013'\
+          \ <br>The query should be based on identifier and is expected to resolve\
+          \ a single entity on which the auditing is to be fetched , In case multiple\
+          \ entities are resolved, audit data is return for first entity .<br>In general\
+          \ the syntax is 'EntityFieldExpression Operator ConstantExpression.' Following\
+          \ are details for three parts of a field condition. <br><br><ul><li><b>Entity\
+          \ Field Expression</b> <br>An entity field expression starts with the name\
+          \ of the root tag or with a root tag child and then navigates to a field.\
+          \ So Equity.InstrumentDetails.PreferredIdentifierValue and InstrumentDetails.PreferredIdentifierValue\
+          \ are both valid expressions and point to the PreferredIdentifierValue field.\
+          \ <br>Example <br>Equity.InstrumentDetails.PreferredIdentifierValue <ul><li>Equity\
+          \ is the root tag name of the Business Entity (can be omitted).</li> <li>InstrumentDetails\
+          \ is an intermediate tag name.</li> <li>PreferredIdentifierValue is the\
+          \ tag name that is actually referred to.</li></ul>Every field expression\
+          \ in the query must be fully qualified. </li><li><b>Operator</b> <br>The\
+          \ list of operators that are supported in query: =, <>, >, <, =>, =<, like,\
+          \ between, is null, is not null and in.</li> <li><b>Constant Expression</b>\
+          \ <br>Constant expressions are either string numbers or date expressions.\
+          \ <br>Examples <ul><li>Number Expression: 1123</li> <li>String Expression:\
+          \ 'StringConstant'</li> <li>Date: '2007-08-31' or '2007-08-31T14:30:30'</li></ul>\
+          \ </li></ul>"
+        required: true
+      tags:
+      - "Audit"
+  /metadata/gso/{gso}:
+    get:
+      summary: "Get Schema Definition for GSO"
+      deprecated: false
+      description: "This API provides JSON/XML schema definition for given GSO. It\
+        \ also support swagger schema, which can be added as a model definition in\
+        \ API specification for reference."
+      operationId: "getSchemaForGSOGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gso"
+        description: "GSO Name"
+        required: true
+      - schema:
+          default: false
+          type: "boolean"
+        in: "query"
+        name: "includeRelationName"
+        description: "When this flag is set to true, the generated schema will include\
+          \ the name of the relation as displayed in the GSO Designer along with data\
+          \ group name.<br>When this flag is set to false, only the data group name\
+          \ of the related entity will be included.By default, this flag is set to\
+          \ false to avoid any impact on the existing implementtions."
+      - schema:
+          default: "SWAGGER"
+          type: "string"
+          enum:
+          - "SWAGGER"
+          - "JSON"
+          - "XML"
+        in: "query"
+        name: "schemaType"
+        description: "Schema Type"
+        required: true
+      tags:
+      - "GSOMetaData"
+  /metadata/gso/{gso}/fields:
+    get:
+      summary: "Get List of Fields for GSO"
+      deprecated: false
+      description: "This API provides a list of fully qualified paths for all fields\
+        \ for a given GSO. These paths can be used for other metadata APIs or to build\
+        \ an EQL condition."
+      operationId: "getListofFieldsUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gso"
+        description: "GSO Name"
+        required: true
+      tags:
+      - "GSOMetaData"
+  /productcode/multi:
+    post:
+      summary: "Resolve Product Code in bulk"
+      x-codegen-request-body-name: "requestArray"
+      requestBody:
+        description: "Array of ProductCode lookup requests"
+        content:
+          application/json:
+            schema:
+              description: ""
+              type: "object"
+        required: true
+      deprecated: false
+      operationId: "resolveProductCodeMultiUsingPOST"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Product Code not found of any request"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+        406:
+          description: "Invalid entityRequest"
+          content: {}
+      tags:
+      - "ProductTaxonomy"
+  /DeleteStagedVendorRecord:
+    post:
+      summary: "DeleteStagedVendorRecord"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "DeleteStagedVendorRecord"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/DeleteStagedVendorRecord"
+        required: true
+      operationId: "DeleteStagedVendorRecordUsingPOST"
+      description: "DeleteStagedVendorRecord"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/DeleteStagedVendorRecord"
+      tags:
+      - "Staging"
+  /LoadCalendarHolidayDetails:
+    post:
+      summary: "LoadCalendarHolidayDetails"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "LoadCalendarHolidayDetails"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/LoadCalendarHolidayDetails"
+        required: true
+      operationId: "LoadCalendarHolidayDetailsUsingPOST"
+      description: "LoadCalendarHolidayDetails"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/LoadCalendarHolidayDetails"
+      tags:
+      - "Others"
+  /gso/gsoName/{gsoName}/fullQualifiedField/{fullQualifiedField}/fieldValue/{fieldValue}/format/{format}:
+    get:
+      summary: "Fetch Entity by Format"
+      deprecated: false
+      description: "This API supports retrieving a single entity that is resolved\
+        \ based on the field name and field value."
+      operationId: "getEntityByIdFormatUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        403:
+          description: "Forbidden from accessing a valid URL"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "fieldValue"
+        description: "Field value for filtering entity"
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "format"
+        description: "Output format - XML/JSON"
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "fullQualifiedField"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gsoName"
+        description: "GSO Name"
+        required: true
+      - schema:
+          default: false
+          type: "boolean"
+        in: "query"
+        name: "correlationheader"
+        description: "When the Correlation Header flag is set to true, the rrlgOid\
+          \ and apiId will be displayed in the response."
+      tags:
+      - "Publishing"
+  /productcode/reset/{reset}:
+    get:
+      summary: "Reset Cache"
+      deprecated: false
+      description: "This API provides a handle to the taxonomy rules cache and allows\
+        \ the application to reset the cache in order to fetch the latest version\
+        \ of taxonomy rules."
+      operationId: "resetCacheUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+      parameters:
+      - schema:
+          default: "true"
+          type: "string"
+          enum:
+          - "true"
+          - "false"
+        in: "path"
+        name: "reset"
+        required: true
+      tags:
+      - "ProductTaxonomy"
+  /metadata/gso/{gso}/rules:
+    get:
+      summary: "Get List of Rules"
+      deprecated: false
+      description: "This API provides a list of Rules that are defined on the given\
+        \ GSO."
+      operationId: "getListOfRulesUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gso"
+        description: "GSO Name"
+        required: true
+      tags:
+      - "GSOMetaData"
+  /:
+    post:
+      summary: "Token Data"
+      servers:
+      - url: "http://localhost:8081/GSOService"
+      requestBody:
+        description: "Generate TokenData"
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/TokenData"
+        required: true
+      operationId: "TokenDataPOST"
+      description: "Token Data"
+      responses:
+        200:
+          description: "OK"
+      tags:
+      - "Operations"
+  /trace/fullQualifiedField/{fullQualifiedField}/{messageType}:
+    get:
+      summary: "Trace a Field for Message Type"
+      deprecated: false
+      description: "This API provides the trace details of a field in JSON format\
+        \ for given Message Type"
+      operationId: "getTraceOfFieldForMessagetTypeGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "fullQualifiedField"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "messageType"
+        description: "Trace field for only the message type provided. "
+        required: true
+      tags:
+      - "Trace"
+  /gso/transformation:
+    get:
+      summary: "Transform Input File using MDX"
+      deprecated: false
+      operationId: "performTranslationUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+        417:
+          description: "Expectation failed"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "mdxPath"
+        description: "Absolute path of the MDX</br>Example : /ext/app/jbossstandalone_dev/Transformation/JsonToJson.mdx"
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "inputPath"
+        description: "Absolute path of the input file<br>Example : /ext/app/jbossstandalone_dev/Transformation/EquityJSON.json"
+        required: true
+      tags:
+      - "Publishing"
+  /orchestrator/resetDocumentation/{reset}:
+    get:
+      summary: "Reset Documentation"
+      deprecated: false
+      description: "This API adds or updates the orchestrator webservice in the Swagger\
+        \ documentation. Please reload the URL after using this API."
+      operationId: "resetModelsUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          default: "true"
+          type: "string"
+          enum:
+          - "true"
+          - "false"
+        in: "path"
+        name: "reset"
+        required: true
+      tags:
+      - "Orchestrator"
+  /metadata/field/{field}/validValues:
+    get:
+      summary: "Get Valid Values for field"
+      deprecated: false
+      description: "This API provides a list of valid values for a given field. It\
+        \ is similar to the drop-down list available for the given field in the user\
+        \ interface."
+      operationId: "getValidValuesUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "field"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      tags:
+      - "GSOMetaData"
+  /productcode:
+    post:
+      summary: "Resolve Product Code"
+      x-codegen-request-body-name: "request"
+      requestBody:
+        description: "ProductCode lookup request"
+        content:
+          application/json:
+            schema:
+              description: ""
+              type: "object"
+        required: true
+      deprecated: false
+      operationId: "resolveProductCodeUsingPOST"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Multiple Product code found"
+          content: {}
+        204:
+          description: "Product Code not found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      tags:
+      - "ProductTaxonomy"
+    get:
+      summary: "Fetch Resolved Product Code"
+      deprecated: false
+      operationId: "resolveProductCodeGetUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        500:
+          description: "Multiple Product codes found"
+          content: {}
+        204:
+          description: "Product Code not found"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          default: "false"
+          type: "string"
+          enum:
+          - "true"
+          - "false"
+        in: "query"
+        name: "includeReqParam"
+        description: "When this flag is set to true, the request parameters are included\
+          \ in the response."
+      - schema:
+          type: "string"
+        in: "query"
+        name: "consumer"
+        description: "Consumer Code"
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "callingSystemName"
+        description: "Application Name invoking API"
+      - schema:
+          default: "true"
+          type: "string"
+          enum:
+          - "true"
+          - "false"
+        in: "query"
+        name: "deepLookup"
+        description: "When this flag is set to true, the API will resolve all product\
+          \ codes for the requested attribute. For a false value, it will return the\
+          \ first resolved product code."
+      tags:
+      - "ProductTaxonomy"
+  /datastaging/normalised:
+    get:
+      summary: "Fetch Normalised Entities"
+      deprecated: false
+      operationId: "fetchNormalisedEntitiesUsingGET"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad Request (Invalid Value)"
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+        412:
+          description: "Precondition Failed"
+          content: {}
+        204:
+          description: "Entity Not Found"
+        206:
+          description: "More data exists"
+        404:
+          description: "Given value not found"
+          content: {}
+        406:
+          description: "Not Acceptable"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "templateName"
+        description: "The template name is used to control the fields displayed in\
+          \ the output, but this functionality is only available for grid templates."
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eql"
+        description: "Filter condition using Entity Query Language<br>Example : <br>ID_ISIN\
+          \ = 'US5770811025'<br><br>where <b>ID_ISIN</b> is the field on which condition\
+          \ is applied .<br><li><b>Operator</b> <br>The list of operators that are\
+          \ supported in query: =, <>, >, <, =>, =<, like, between, is null, is not\
+          \ null and in(case sensitive).</li>"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "compression"
+        description: "This parameter is used to enable output compression. Currently,\
+          \ gzip compression is supported."
+      - schema:
+          default: "1"
+          type: "string"
+        in: "query"
+        name: "marker"
+        description: "Start Index"
+      - schema:
+          default: "100"
+          pattern: "^[1-9]+[0-9]*$"
+          type: "string"
+        in: "query"
+        name: "limit"
+        description: "Request bulk size (Max is 10000)"
+      tags:
+      - "Staging"
+  /EnableORDisableVDDBForwarding:
+    post:
+      summary: "EnableORDisableVDDBForwarding"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "EnableORDisableVDDBForwarding"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/EnableORDisableVDDBForwarding"
+        required: true
+      operationId: "EnableORDisableVDDBForwardingUsingPOST"
+      description: "EnableORDisableVDDBForwarding"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/EnableORDisableVDDBForwarding"
+      tags:
+      - "Utility"
+  /datastaging/concrete:
+    get:
+      summary: "Fetch Concrete Entities"
+      deprecated: false
+      operationId: "fetchConcreteEntitiesUsingGET"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad Request (Invalid Value)"
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+        412:
+          description: "Precondition Failed"
+          content: {}
+        204:
+          description: "Entity Not Found"
+        206:
+          description: "More data exists"
+        404:
+          description: "Given value not found"
+          content: {}
+        406:
+          description: "Not Acceptable"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eql"
+        description: "Filter condition using Entity Query Language<br>Example : <br>ID_ISIN\
+          \ = 'US5770811025'<br><br>where <b>ID_ISIN</b> is the field on which condition\
+          \ is applied .<br><li><b>Operator</b> <br>The list of operators that are\
+          \ supported in query: =, <>, >, <, =>, =<, like, between, is null, is not\
+          \ null and in(case sensitive).</li>"
+      - schema:
+          default: true
+          type: "boolean"
+        in: "query"
+        name: "transform"
+        description: "When this flag is set to true, the API will execute the defined\
+          \ validation and transformation rules on entities."
+      - schema:
+          type: "string"
+        in: "query"
+        name: "compression"
+        description: "This parameter is used to enable output compression. Currently,\
+          \ gzip compression is supported."
+      - schema:
+          default: "1"
+          type: "string"
+        in: "query"
+        name: "marker"
+        description: "Start Index"
+      - schema:
+          default: "100"
+          pattern: "^[1-9]+[0-9]*$"
+          type: "string"
+        in: "query"
+        name: "limit"
+        description: "Request bulk size (Max is 10000) "
+      - schema:
+          default: "N"
+          type: "string"
+        in: "query"
+        name: "fetchLatest"
+        description: "Fetch latest records based in Transaction ID "
+        required: false
+      - schema:
+          default: "N"
+          type: "string"
+        in: "query"
+        name: "fetchInActive"
+        description: "Retrieve inactive records."
+        required: false
+      tags:
+      - "Staging"
+  /gso/gsoName/{gsoName}/fullQualifiedField/{fullQualifiedField}/fieldValue/{fieldValue}:
+    get:
+      summary: "Fetch entity by Id"
+      deprecated: false
+      operationId: "getEntityByIdUsingGET"
+      responses:
+        200:
+          description: "OK"
+          content: {}
+        400:
+          description: "Bad Request (Invalid Value)"
+          content: {}
+        412:
+          description: "Precondition Failed"
+          content: {}
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+          content: {}
+        204:
+          description: "Entity Not Found"
+          content: {}
+        403:
+          description: "Forbidden from accessing a valid URL"
+          content: {}
+        404:
+          description: "Given value not found"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "path"
+        name: "fieldValue"
+        description: "Field value for filtering entity"
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "fullQualifiedField"
+        description: "Full qualified path of a field. For example, the fullQualifiedField\
+          \ for ISIN is Equity.Identifiers.InstrumentLevelIdentifiers.ISIN."
+        required: true
+      - schema:
+          type: "string"
+        in: "path"
+        name: "gsoName"
+        description: "GSO Name"
+        required: true
+      - schema:
+          type: "string"
+        in: "query"
+        name: "multiPartFilter"
+        description: "Condition to Filter multi occurring data set as part of response\
+          \ <br>Example :<br>InstrumentPriceAttributes.ISPAPricingHistory( ISPAISPHPriceDate\
+          \ between '2020-03-01' and '2020-03-28' )<br>where ISPAPricingHistory is\
+          \ the multi Occuring data group and ISPAISPHPriceDate is the filtering field"
+      - schema:
+          default: false
+          type: "boolean"
+        in: "query"
+        name: "correlationheader"
+        description: "When the Correlation Header flag is set to true, the rrlgOid\
+          \ and apiId will be displayed in the response."
+      tags:
+      - "Publishing"
+  /DateDifference:
+    post:
+      summary: "DateDifference"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "DateDifference"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/DateDifference"
+        required: true
+      operationId: "DateDifferenceUsingPOST"
+      description: "DateDifference"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/DateDifference"
+      tags:
+      - "Utility"
+  /datastaging/raw:
+    get:
+      summary: "Fetch Raw Entities"
+      deprecated: false
+      operationId: "fetchRawEntitiesUsingGET"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad Request (Invalid Value)"
+        500:
+          description: "Server encountered an unexpected condition that prevented\
+            \ it from fulfilling the request"
+        412:
+          description: "Precondition Failed"
+          content: {}
+        204:
+          description: "Entity Not Found"
+        206:
+          description: "More data exists"
+        404:
+          description: "Given value not found"
+          content: {}
+        406:
+          description: "Not Acceptable"
+          content: {}
+      parameters:
+      - schema:
+          type: "string"
+        in: "query"
+        name: "eql"
+        description: "Filter condition using Entity Query Language<br>Example : <br>ID_ISIN\
+          \ = 'US5770811025'<br><br>where <b>ID_ISIN</b> is the field on which condition\
+          \ is applied .<br><li><b>Operator</b> <br>The list of operators that are\
+          \ supported in query: =, <>, >, <, =>, =<, like, between, is null, is not\
+          \ null and in(case sensitive).</li>"
+      - schema:
+          type: "string"
+        in: "query"
+        name: "compression"
+        description: "This parameter is used to enable output compression. Currently,\
+          \ gzip compression is supported."
+      - schema:
+          default: "1"
+          type: "string"
+        in: "query"
+        name: "marker"
+        description: "Start Index"
+      - schema:
+          default: "100"
+          pattern: "^[1-9]+[0-9]*$"
+          type: "string"
+        in: "query"
+        name: "limit"
+        description: "Request bulk size (Max is 10000)"
+      tags:
+      - "Staging"
+  /PLP-1068-1:
+    post:
+      summary: "PLP-1068-1"
+      servers:
+      - url: "https://indev62.thegoldensource.com:8943/fileloading/rest/event"
+      requestBody:
+        description: "PLP-1068-1"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/request/PLP-1068-1"
+        required: true
+      operationId: "PLP-1068-1UsingPOST"
+      description: "PLP-1068-1"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/response/PLP-1068-1"
+      tags:
+      - "Inbound"
+info:
+  license:
+    name: "License of API"
+    url: "http://www.thegoldensource.com"
+  contact:
+    name: "GoldenSource"
+    url: "http://www.thegoldensource.com"
+    email: "support@thegoldensource.com"
+  title: "GoldenSource REST API"
+  version: "8.8.1.27"
+tags:
+- name: "GSOMetaData"
+  description: "GSO Meta Data API's"
+- name: "Inbound"
+  description: "Inbound API's"
+- name: "Publishing"
+  description: "GSO Publishing API's"
+- name: "Staging"
+  description: "Data Staging"
+- name: "Trace"
+  description: "Tracing"
+- name: "Orchestrator"
+  description: "Orchestrator"
+- name: "Operations"
+  description: "Operations"
+- name: "Audit"
+  description: "REST API for Auditing"
+- name: "ProductTaxonomy"
+  description: "Product Taxonomy API's"
+- name: "Others"
+  description: "Others"
+- name: "Utility"
+  description: "Utility"
